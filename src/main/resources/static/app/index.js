@@ -1,10 +1,23 @@
 var app = angular.module('myApp', []);
 app.controller('StudentController', ['$http', '$scope', function ($http, $scope) {
     var self = this;
-    self.studentModel = {id: null, name: '', roll: '', className: ''};
-    self.saveStudent = saveStudent;
     self.success = null;
     self.error = null;
+
+    self.studentModel = {id: null, name: '', roll: '', className: ''};
+    self.saveStudent = saveStudent;
+    self.studentList = [];
+    self.studentList = studentList;
+    studentList();
+
+    function studentList() {
+        $http.get('/studentList').success(function (d) {
+            console.log(d);
+            self.studentList = d;
+        }).error(function (data, status, headers) {
+            console.log(data);
+        });
+    };
 
     function saveStudent(student) {
         $http.post('/saveStudent', student).success(function (d) {
@@ -17,4 +30,5 @@ app.controller('StudentController', ['$http', '$scope', function ($http, $scope)
             }
         });
     }
+
 }]);

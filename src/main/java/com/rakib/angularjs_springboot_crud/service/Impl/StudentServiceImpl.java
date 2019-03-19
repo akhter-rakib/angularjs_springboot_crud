@@ -22,7 +22,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> list() {
-        return studentRespository.findAll();
+        return studentRespository.list(ActiveStatus.ACTIVE.getValue());
     }
 
     @Override
