@@ -52,8 +52,9 @@
             <td> {{stdList.roll}}</td>
             <td> {{stdList.className}}</td>
             <td>
-                <button type="button" ng-click="" class="btn btn-info ">Edit</button>
-                <button type="button" ng-click="" class="btn btn-danger ">Active</button>
+                <button type="button" ng-click="stdCtr.update(stdList.id)" class="btn btn-info ">Edit</button>
+                <button type="button" ng-click="stdCtr.removeStudent(stdList.id)" class="btn btn-danger ">Inactive
+                </button>
             </td>
         </tr>
         </tbody>

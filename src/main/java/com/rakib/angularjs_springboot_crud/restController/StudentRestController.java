@@ -24,4 +24,14 @@ public class StudentRestController {
     public List<Student> getStudentList() {
         return studentService.list();
     }
+
+    @RequestMapping(value = "/getStudent/{id}")
+    public Student getStudent(@PathVariable("id") Long id) throws Exception {
+        return studentService.get(id);
+    }
+
+    @RequestMapping(value = "/deleteStudent/{id}")
+    public void deleteStudent(@PathVariable("id") Long id) {
+        studentService.delete(id);
+    }
 }
