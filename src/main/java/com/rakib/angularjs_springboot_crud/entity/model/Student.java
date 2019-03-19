@@ -1,11 +1,14 @@
 package com.rakib.angularjs_springboot_crud.entity.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.rakib.angularjs_springboot_crud.config.ActiveStatus;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Student {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
